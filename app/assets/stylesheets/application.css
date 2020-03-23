@@ -49,3 +49,11 @@ h2{
 .show-p{
 	margin: 33px;
 }
+
+td{
+	padding: 7px;
+}
+
+table{
+	margin-bottom: 20px;
+}

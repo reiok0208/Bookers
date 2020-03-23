@@ -1,16 +1,15 @@
 <h1>Books</h1>
 
-<% f = 0 %>
-
-<% @books.each do |book| %>
-
   <table>
+<% @books.each_with_index do |book,i| %>
+  <% if i < 1 %>
     <thead>
       <tr>
         <th>Title</th>
         <th>Body</th>
       </tr>
     </thead>
+  <% end %>
     <tbody>
   	  <tr>
   	    <td><%= book.title %></td>
@@ -20,9 +19,8 @@
   	    <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %><br></td>
   	  </tr>
     </tbody>
-  </table>
-
 <% end %>
+  </table>
 
 
 <h2>New book</h2>
