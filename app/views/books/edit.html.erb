@@ -1,14 +1,30 @@
 <h1>Editing Book</h1>
 <%= form_for(@book, url: "/books/#{@book.id}") do |f| %>
 
-    <p>Title<p>
+  <% if @book.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2 class="error-name"><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class ="field-style">
+    <%= f.label :title %>
     <%= f.text_field :title %>
+  </div>
 
-    <p>Body<p>
+  <div class ="field-style">
+    <%= f.label :body %>
     <%= f.text_area :body %>
-    <br><br>
+  </div>
 
-    <%= f.submit 'Create Book' %>
+  <div class ="field-style">
+  <%= f.submit 'Create Book' %>
+  </div>
 
 <% end %>
 
